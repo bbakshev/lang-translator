@@ -1,6 +1,7 @@
 /* eslint-disable no-debugger */
 /* eslint-disable no-unused-vars */
 import GoogleLang from './googleLang.js';
+import TextToSpeech from './textToSpeech.js';
 
 function handleFormSubmission(event) {
   event.preventDefault();
@@ -42,14 +43,14 @@ function fillOutSelectOptions(jsonResponse) {
   
 }
 
-window.onload = () => { 
-  let promise = GoogleLang.getLangOptions();
-  promise.then(
-    function(args) {
-      fillOutSelectOptions(args);
-    },
-    function(args) {
-      printError(args[0], args[1]);
-    });
-};
+// window.onload = () => { 
+//   let promise = GoogleLang.getLangOptions();
+//   promise.then(
+//     function(args) {
+//       fillOutSelectOptions(args);
+//     },
+//     function(args) {
+//       printError(args[0], args[1]);
+//     });
+// };
 document.getElementById('translateText').addEventListener('submit', handleFormSubmission);
