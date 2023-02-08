@@ -1,29 +1,51 @@
-# (Application Name)
+# Google Translator
 
-#### (Brief Description of Application)
-
-#### By (Your Name Here)
+#### By **Carl Sustrich**, **Jackson Levine**, **Brishna Bakshev**
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* HTML
+* CSS
+* JavaScript
+* API
 
 ## Description
 
+A simple JavaScript and Google Translator form for a user to input a phrase and receive a translation of the phrase from any language to the user's specified language.  
+
+
 ## Setup/Installation Requirements
+Open Terminal
+Change the current working directory to the location where you want the cloned directory (ex: Desktop)
+```sh
+git clone {add url here}
+```
+In the Terminal, navigate to the folder you have cloned in your Desktop
+Open the code in VS code by typing: 
+```sh
+code .
+```
+Please also use npm by following:
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+Installing all packages with 
+```sh
+npm install
+```
 
+Building the project using webpack with
+```sh
+npm run build
+```
+Starting a development server with
+```sh
+npm run start
+```
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+N/A
 
 ## License
+
+MIT
+
+Copyright (c) 2023 Carl Sustrich, Jackson Levine, Brishna Bakshev
