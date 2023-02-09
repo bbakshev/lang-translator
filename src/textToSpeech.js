@@ -12,10 +12,10 @@ export default class TextToSpeech {
     ]);
 
     let promise = new Promise(function(resolve, reject) {
-      let url = `src=${text}&hl=en-us`;
+      let url = `src=${text}&hl=en-us&b64=true`;
 
       if(langMap.has(lang)) {
-        url = `src=${text}&hl=${langMap.at(lang)}&c=mp3`;
+        url = `src=${text}&hl=${langMap.at(lang)}&c=mp3&b64=true`;
       }
       
       const request = new XMLHttpRequest();

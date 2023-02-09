@@ -1,7 +1,7 @@
 /* eslint-disable no-debugger */
 /* eslint-disable no-unused-vars */
 import GoogleLang from './googleLang.js';
-// import TextToSpeech from './textToSpeech.js';
+import TextToSpeech from './textToSpeech.js';
 
 function handleFormSubmission(event) {
   event.preventDefault();
@@ -43,23 +43,19 @@ function fillOutSelectOptions(jsonResponse) {
   
 }
 
-// function getSpeechFromText() {
-//   let phrase = 'test phrase';
-//   let lang = 'en-us';
-//   let audioP = document.getElementById("aud");
-  
-//   let promise = TextToSpeech.getSpeech(phrase, lang)
-//   promise.then(function(response) {
-//     debugger;
-//     const audio = new Audio(response);
-//     console.log(audio)
-//     console.log(typeof audio)
-//     audio.play();
-//   })
 
-// }
+
+function getSpeechFromText(synth, text) {
+  let phrase = text;
+  let lang = 'en-us';
+
+  const utterThis = new SpeechSynthesisUtterance(phrase);
+  utterThis.lang = 'fr-FR';
+  const audio = synth.speak(utterThis);
+}
 
 window.onload = () => { 
+  const synth = window.speechSynthesis;
   let promise = GoogleLang.getLangOptions();
   promise.then(
     function(args) {
@@ -68,6 +64,11 @@ window.onload = () => {
     function(args) {
       printError(args[0], args[1]);
     });
+  document.getElementById('translateText').addEventListener('submit', handleFormSubmission);
+  document.getElementById('listen').addEventListener('click', () => {
+    let userText = document.getElementById("phrase").value;
+    getSpeechFromText(synth, userText);
+  });
+    
 };
-document.getElementById('translateText').addEventListener('submit', handleFormSubmission);
-// document.getElementById('listen').addEventListener('click', getSpeechFromText)
+
